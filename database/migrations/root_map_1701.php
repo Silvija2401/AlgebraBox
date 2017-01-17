@@ -2,7 +2,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class RootMap extends Migration
+class RootMaps extends Migration
 {
  /**
      * Run the migrations.
@@ -13,14 +13,22 @@ class RootMap extends Migration
     {
         Schema::create('root_maps', function (Blueprint $table) {
             $table->increments('id');
+			
             $table->timestamp('created_at')->nullable();
-            $table->timestamps();
-
-            
-        });
+            $table->timestamps('updated_at')->nullable();
+		});
+			
+            Schema::table('roots_maps', function(Blueprint $table){
+ +        $table->string('name');
+ +        $table->integer('users_id')->unsigned();
+ +		});
+      
 		
+				
+	
 		 public function down()
     {
-        Schema::drop('root_maps');
-	}
+        Schema::dropifexists('root_maps');
+	};
+	
 	
