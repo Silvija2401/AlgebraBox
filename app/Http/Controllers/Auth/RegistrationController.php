@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Models\UserMap;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 69a0515a584a7c3776696f7a01a0d672b419637c
 
 class RegistrationController extends Controller
 {
@@ -37,6 +41,7 @@ class RegistrationController extends Controller
     public function getRegister()
     {
         return view('auth.register');
+		
     }
 
     /**
@@ -91,6 +96,21 @@ class RegistrationController extends Controller
 		
 
 		
+<<<<<<< HEAD
+=======
+		$hashedMap = Hash::make('$result->user->id');
+		
+		File::makeDirectory(storage_path("app/maps/user_$hashedMap"), 0755, true, true);
+		
+		// Pospremi id korisnika i ime mape u bazu
+		
+		$map = new UserMap();
+		
+		$map->name = $hashedMap;
+		$map->users_id = $result->user->id;
+		
+		$map->save();
+>>>>>>> 69a0515a584a7c3776696f7a01a0d672b419637c
 		
 		
 
