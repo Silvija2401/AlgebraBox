@@ -6,14 +6,13 @@ use Mail;
 use Session;
 use Sentinel;
 use Activation;
-Use Hash;
-Use File;
+use File;
 use App\Http\Requests;
 use Centaur\AuthManager;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
-
+use App\Models\UserMap;
 
 class RegistrationController extends Controller
 {
@@ -83,7 +82,6 @@ class RegistrationController extends Controller
             }
         );
 		
-<<<<<<< HEAD
 		//Create Root map for each user 
 		
 		$hashedMap('user_id') = substr(md5(uniqid(rand(),1)),0,32);
@@ -96,13 +94,6 @@ class RegistrationController extends Controller
 		
 		
 
-=======
-		// Kreira root mapu za svakog korisnika prilikom registracije
-		
-		$hashedMap = Hash::make('$result->user->id');
-		File::makeDirectory(base_path("storage/app/maps/users_$hashedMap"), 0755, true, true);
-		
->>>>>>> 37f9f99c65d426ff4beffe082ce1d374e4b764bc
         // Ask the user to check their email for the activation link
         $result->setMessage('Registration complete.  Please check your email for activation instructions.');
 
