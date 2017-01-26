@@ -16,6 +16,10 @@ Route::get('/', ['as' => 'index', 'uses' => 'IndexController@index']);
 // Home page
 Route::get('home', ['as' => 'home', 'uses' => 'User\HomeController@index']);
 
+//Categories page
+Route::group(['prefix' => 'user'], function () {
+  Route::resource('categories', 'User\CategoriesController');
+});
 // Authorization
 Route::get('login', ['as' => 'auth.login.form', 'uses' => 'Auth\SessionController@getLogin']);
 Route::post('login', ['as' => 'auth.login.attempt', 'uses' => 'Auth\SessionController@postLogin']);
@@ -35,6 +39,10 @@ Route::get('password/reset/{code}', ['as' => 'auth.password.reset.form', 'uses' 
 Route::post('password/reset/{code}', ['as' => 'auth.password.reset.attempt', 'uses' => 'Auth\PasswordController@postReset']);
 Route::get('password/reset', ['as' => 'auth.password.request.form', 'uses' => 'Auth\PasswordController@getRequest']);
 Route::post('password/reset', ['as' => 'auth.password.request.attempt', 'uses' => 'Auth\PasswordController@postRequest']);
+
+
+	
+
 
 
 
