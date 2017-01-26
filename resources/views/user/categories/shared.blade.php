@@ -1,27 +1,24 @@
 @extends('layouts.index')
 
-@section('title', 'Categories | AlgebraBox')
+@section('title', 'Shared | AlgebraBox')
 
 @section('content')
 <div class="row">
   <ol class="breadcrumb">
     <li><a href="{{route('home')}}">Home</a></li>
-	<li class="active">Categories</li>
+	<li class="active">Shared</li>
   </ol>
 </div>
-
 
 <div id="statistic" class="row">
 		 
 	<div class="col-md-3">
 		<div class="user-info">
-			<p>User ID: emal</p>
+			<p>User ID: email</p>
 			<p class="user-gravatar">
 				<img src="{!!asset('images/algebra-BOX-logo.png')!!}"/>
-				
 			</p>
 			
-		
 		</div>	
 	</div>
 	
@@ -130,52 +127,10 @@
 					</a>
 				</div>
 			</div>
-			<div>
-				<div class="col-md-12">
-		<div class="panel panel-default">
-			
-				<div>
-					<div class="col-md-3 folder-info">
-						<div>
-							<h3>Documents</h3>
-							<p class="btn login-btn-box background-orange"><a class="color-ff" href="#" type="submit">Wiev</a></p>
-							
-						</div>	
-					</div>
+			<div class="panel-body">
 				
-				<div class="col-md-3">
-						<div class="folder-info">
-							<h3>Music</h3>
-							<p class="btn login-btn-box background-orange"><a class="color-ff" href="#" type="submit">Wiev</a></p>
-							
-						</div>	
-					</div>
-				
-					<div class="col-md-3">
-						<div class="folder-info">
-							<h3>Pictures</h3>
-							<p class="btn login-btn-box background-orange"><a class="color-ff" href="#" type="submit">Wiev</a></p>
-							
-						</div>	
-					</div>
-				
-				
-				
-					<div class="col-md-3">
-						<div class="folder-info">
-							<h3>Mix content</h3>
-							<p class="btn login-btn-box background-orange"><a class="color-ff" href="#" type="submit">Wiev</a></p>
-							
-						</div>	
-					</div>
-				</div>
-			</div>
-		</div>
-		
 			</div>
 		</div>
 	</div>
 </div>
-
-
 @stop
