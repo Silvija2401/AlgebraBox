@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User
 
 class CategoriesController extends Controller
 {
@@ -22,9 +23,10 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(){
+		
         return view('user.categories.index');
+		
     }
 
     /**
