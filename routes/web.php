@@ -45,7 +45,7 @@ Route::post('password/reset', ['as' => 'auth.password.request.attempt', 'uses' =
 
 Route::get('categories',function(){
 	$categories = App\Category::all();
-	foereach($categories as $category){
+	foreach($categories as $category){
 		echo $category->name . "is from" . $category->user->name
 	}
 	
