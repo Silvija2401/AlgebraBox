@@ -1,32 +1,51 @@
 <?php
 
 namespace App\Http\Controllers\User;
-
+use Session;
+use Sentinel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+<<<<<<< HEAD
 use App\User
+=======
+use App\Models\Sections;
+use App\Models\Categories;
+use App\Models\Users;
+use App\Models\CategorieUser;
+
+
+>>>>>>> defd0b7a732eeee3f74b1c8b113c7cac6c66369f
 
 class CategoriesController extends Controller
 {
+	
 	
 	public function __construct()
     {
         // Middleware
         $this->middleware('sentinel.auth');
-        $this->middleware('sentinel.access:categories.create', ['only' => ['create', 'store']]);
-        $this->middleware('sentinel.access:categories.view', ['only' => ['index', 'show']]);
-        $this->middleware('sentinel.access:categories.update', ['only' => ['edit', 'update']]);
-        $this->middleware('sentinel.access:categories.destroy', ['only' => ['destroy']]);
+
     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
     public function index(){
 		
         return view('user.categories.index');
 		
+=======
+    public function index()
+	
+    {
+		
+		$categories = Categories::all();
+		
+		
+        return view('user.categories.index', ['categories' => $categories]);
+>>>>>>> defd0b7a732eeee3f74b1c8b113c7cac6c66369f
     }
 
     /**
@@ -36,7 +55,10 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('user.categories.create');
+		
+    	$sections = sections::all();
+		
+        return view('user.categories.create', ['sections' => $sections]);
     }
 
     /**
@@ -47,7 +69,31 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+		
+		
+		
+		
+		
+		 // Unos u tablicu categories
+        $categories = new Categories();
+        $categories->name = $request->name;
+		$categories->sections_id = $request->sections_id;
+        $categories->save();
+		
+		// Unos u pivot tablicu users_categories
+		
+	    $user = Sentinel::getUser()->id;
+		
+		$users_categories = new CategorieUser();
+		$users_categories->user_id = $user;
+		$users_categories->categorie_id = $categories->id;
+		$users_categories->save();
+		
+		
+		// return na list
+		
+      
+       return redirect()->route('categories.index');
     }
 
     /**
